@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src="shape.png" class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            If you want to contact me,you can contact here by writing your comment.
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="location.png" class="icon" alt="" />
+              <p>Contai,West Bengal,India</p>
+            </div>
+            <div class="information">
+              <img src="email.png" class="icon" alt="" />
+              <p>kousiknandi16@gmail.com</p>
+            </div>
+            <div class="information">
+              <img src="phone.png" class="icon" alt="" />
+              <p>+91 9679347198</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with me :</p>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/kousik.nandi.758">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://twitter.com/KousikNandi13?t=XsPrpHSQOmtvQbXF7COLUQ&s=08">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://www.instagram.com/ikousiknandi/">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/kousik-nandi-a65202191/">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form method="POST" name="google-sheet" autocomplete="off">
+            <h3 class="title">Contact me</h3>
+            <div class="input-container">
+              <input type="text" name="Name" class="input" />
+              <label for="name">Name</label>
+              <span>Name</span>
+            </div>
+            <div class="input-container">
+              <input type="email" name="Email" class="input" />
+              <label for="email">Email</label>
+              <span>Email</span>
+            </div>
+            <div class="input-container">
+              <input type="tel" name="Phone" class="input" />
+              <label for="phone">Phone</label>
+              <span>Phone</span>
+            </div>
+            <div class="input-container textarea">
+              <textarea name="Message" class="input"></textarea>
+              <label for="message">Message</label>
+              <span>Message</span>
+            </div>
+            <input type="submit" value="Send" class="btn" name="submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+
+
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxJE5NiZW8hzEumotxUxBVQonySafqR1lRboP_xF8AfzT7MOVwVMwFFw5JHNs3t3NC7/exec'
+      const form = document.forms['google-sheet']
+    
+      form.addEventListener('submit', e => {
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+          .then(response => alert("Thanks for Contacting us..!"))
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+
+
+  </body>
+</html>
